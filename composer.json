@@ -1,0 +1,24 @@
+{
+    "name": "telefunction/support",
+    "description": "Reusable foundations and utilities for Telefunction packages.",
+    "type": "library",
+    "license": "MIT",
+    "keywords": ["telefunction", "laravel", "support", "helpers"],
+    "authors": [
+        {
+            "name": "Telefunction",
+            "role": "Owner"
+        }
+    ],
+    "require": {
+        "php": "^8.3",
+        "laravel/framework": "^13.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Telefunction\\Support\\": "src/"
+        }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}
