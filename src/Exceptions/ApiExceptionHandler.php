@@ -13,6 +13,11 @@ class ApiExceptionHandler extends Handler
 {
     use SendsApiResponses;
 
+    public function shouldReturnDefaultResponse(): bool
+    {
+        return config('app.debug') === true;
+    }
+
     public function shouldRenderJson(Request $request): bool
     {
         return $request->is('api/*') || $request->expectsJson();
@@ -22,22 +27,34 @@ class ApiExceptionHandler extends Handler
     {
         $response = parent::render($request, $e);
 
+        if ($this->shouldReturnDefaultResponse()) {
+            return $response;
+        }
+
         if (! $this->shouldRenderJson($request)) {
             return $response;
         }
 
-        if ($response instanceof JsonResponse) {
-            return $response;
+        if ($e instanceof ApiHttpException) {
+            /** @var array<string, mixed> $errors */
+            $errors = $e->errors();
+
+            /** @var array<string, mixed> $meta */
+            $meta = $e->meta();
+
+            /** @var array<string, string|string[]> $headers */
+            $headers = $e->getHeaders();
+
+            return $this->errorResponse(
+                message: $e->getMessage(),
+                statusCode: $e->getStatusCode(),
+                errors: $errors,
+                code: $e->errorCode(),
+                meta: $meta,
+                headers: $headers,
+            );
         }
 
-        return $this->errorResponse(
-            message: $this->message($response),
-            status: $response->getStatusCode()
-        );
-    }
-
-    protected function message(Response $response): string
-    {
-        return Response::$statusTexts[$response->getStatusCode()] ?? 'Error';
+        return $this->errorResponse(statusCode: $response->getStatusCode());
     }
 }
