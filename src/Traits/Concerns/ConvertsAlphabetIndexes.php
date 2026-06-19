@@ -16,7 +16,7 @@ trait ConvertsAlphabetIndexes
 
         while ($number > 0) {
             $number--;
-            $result = chr(65 + ($number % 26)) . $result;
+            $result = chr(65 + ($number % 26)).$result;
             $number = intdiv($number, 26);
         }
 

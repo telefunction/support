@@ -91,7 +91,7 @@ trait InteractsWithIpRanges
             ? 0
             : ((-1 << (32 - $prefix)) & 0xFFFFFFFF);
 
-        return (((int) $ipLong & $mask) === ((int) $subnetLong & $mask));
+        return ((int) $ipLong & $mask) === ((int) $subnetLong & $mask);
     }
 
     final protected function ipInRangeV6(

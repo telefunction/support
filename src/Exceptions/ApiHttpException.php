@@ -42,9 +42,9 @@ class ApiHttpException extends HttpException
     ];
 
     /**
-     * @param HeaderBag $headers
-     * @param ErrorBag $errors
-     * @param ErrorBag $meta
+     * @param  HeaderBag  $headers
+     * @param  ErrorBag  $errors
+     * @param  ErrorBag  $meta
      */
     public function __construct(
         int $statusCode,
@@ -64,9 +64,9 @@ class ApiHttpException extends HttpException
     }
 
     /**
-     * @param ErrorBag $errors
-     * @param ErrorBag $meta
-     * @param HeaderBag $headers
+     * @param  ErrorBag  $errors
+     * @param  ErrorBag  $meta
+     * @param  HeaderBag  $headers
      */
     public static function make(
         int $statusCode,
@@ -89,7 +89,7 @@ class ApiHttpException extends HttpException
     }
 
     /**
-     * @param list<mixed> $arguments
+     * @param  list<mixed>  $arguments
      */
     public static function __callStatic(string $name, array $arguments): self
     {

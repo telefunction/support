@@ -33,6 +33,6 @@ trait InteractsWithTranslations
     {
         return Str::contains($key, '::')
             ? $key
-            : static::packageIdentifier(PackageSeparator::Slug) . '::' . $key;
+            : static::packageIdentifier(PackageSeparator::Slug).'::'.$key;
     }
 }

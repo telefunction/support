@@ -8,8 +8,8 @@ use Symfony\Component\HttpFoundation\Response;
 trait SendsApiResponses
 {
     /**
-     * @param array<string, mixed> $payload
-     * @param array<string, string|string[]> $headers
+     * @param  array<string, mixed>  $payload
+     * @param  array<string, string|string[]>  $headers
      */
     protected function buildResponse(array $payload, int $status, array $headers): JsonResponse
     {
@@ -27,8 +27,8 @@ trait SendsApiResponses
     }
 
     /**
-     * @param array<string, mixed> $meta
-     * @param array<string, string|string[]> $headers
+     * @param  array<string, mixed>  $meta
+     * @param  array<string, string|string[]>  $headers
      */
     protected function successResponse(
         mixed $data = null,
@@ -57,9 +57,9 @@ trait SendsApiResponses
     }
 
     /**
-     * @param array<string, mixed>|null $errors
-     * @param array<string, mixed> $meta
-     * @param array<string, string|string[]> $headers
+     * @param  array<string, mixed>|null  $errors
+     * @param  array<string, mixed>  $meta
+     * @param  array<string, string|string[]>  $headers
      */
     protected function errorResponse(
         ?string $message = null,

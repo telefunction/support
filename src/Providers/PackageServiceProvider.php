@@ -48,12 +48,12 @@ abstract class PackageServiceProvider extends ServiceProvider
     {
         $root = static::packageBasePath('config');
 
-        return static::packageIdentifier(PackageSeparator::Path, root: $root) . '.php';
+        return static::packageIdentifier(PackageSeparator::Path, root: $root).'.php';
     }
 
     final public static function publishedConfigPath(): string
     {
-        return config_path(static::packageIdentifier(PackageSeparator::Path) . '.php');
+        return config_path(static::packageIdentifier(PackageSeparator::Path).'.php');
     }
 
     final public static function migrationsPath(): string

@@ -31,8 +31,8 @@ trait SeedsModels
     }
 
     /**
-     * @param class-string<Model> $model
-     * @param array<int, array<string, mixed>> $records
+     * @param  class-string<Model>  $model
+     * @param  array<int, array<string, mixed>>  $records
      */
     protected function seedModel(string $model, array $records): void
     {

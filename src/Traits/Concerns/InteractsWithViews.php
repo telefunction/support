@@ -2,8 +2,9 @@
 
 namespace Telefunction\Support\Traits\Concerns;
 
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
 use Illuminate\Support\Str;
-use Illuminate\Contracts\View\{Factory, View};
 use Telefunction\Support\Enums\PackageSeparator;
 
 trait InteractsWithViews
@@ -19,6 +20,6 @@ trait InteractsWithViews
     {
         return Str::contains($key, '::')
             ? $key
-            : static::packageIdentifier(PackageSeparator::Slug) . '::' . $key;
+            : static::packageIdentifier(PackageSeparator::Slug).'::'.$key;
     }
 }

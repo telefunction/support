@@ -33,19 +33,18 @@ trait ResolvesPackageNames
     }
 
     /**
-     * @param array<string> $segments
+     * @param  array<string>  $segments
      */
     final public static function packageIdentifier(
         PackageSeparator $separator,
         ?string $root = null,
         ?string $package = null,
         array $segments = []
-    ): string
-    {
+    ): string {
         return implode($separator->separator(), [
             $root ?? static::vendorName(),
             $package ?? static::packageName(),
-            ...$segments
+            ...$segments,
         ]);
     }
 

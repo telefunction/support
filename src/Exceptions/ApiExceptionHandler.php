@@ -3,7 +3,6 @@
 namespace Telefunction\Support\Exceptions;
 
 use Illuminate\Foundation\Exceptions\Handler;
-use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Telefunction\Support\Traits\Http\SendsApiResponses;
